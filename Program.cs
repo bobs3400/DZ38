@@ -1,21 +1,23 @@
 ﻿Console.Clear();
+link1:
 Console.WriteLine("Введите элементы массива через пробел: ");
 string elements = Console.ReadLine();
 int[] baseArray = GetArrayFromString(elements);
 
 int FindRaznica(int[] mass)
 {
-    int min = 0;
+    int min = mass[0];
     int max = 0;
-    foreach (var item in mass)
+    int r = 0;
+    for(int i = 0; i < mass.Length; i++)
     {
-        if (min > item)
+        if (min > mass[i])
         {
             min = mass[i];
         }
         else
         {
-            if (max < item) max = mass[i];
+            if (max < mass[i]) max = mass[i];
         }
     }
     return r = max - min;
@@ -32,4 +34,12 @@ int[] GetArrayFromString(string stringArray)
     }
     return res;
 }
-Console.WriteLine(FindRaznica(baseArray));
+if (baseArray.Length >= 2)
+{
+    Console.WriteLine(FindRaznica(baseArray));
+}
+else
+{
+    Console.WriteLine("Вы ввели слишком короткий массив - повторите");
+    goto link1;
+}
