@@ -9,10 +9,16 @@ int FindRaznica(int[] mass)
     int max = 0;
     foreach (var item in mass)
     {
-        if (min > item) min = mass[i];
-        if (max < item) max = mass[i];
+        if (min > item)
+        {
+            min = mass[i];
+        }
+        else
+        {
+            if (max < item) max = mass[i];
+        }
     }
-    return false;
+    return r = max - min;
 }
 
 int[] GetArrayFromString(string stringArray)
@@ -26,3 +32,4 @@ int[] GetArrayFromString(string stringArray)
     }
     return res;
 }
+Console.WriteLine(FindRaznica(baseArray));
